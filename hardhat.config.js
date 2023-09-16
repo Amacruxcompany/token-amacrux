@@ -1,14 +1,14 @@
-require("@nomicfoundation/hardhat-toolbox");
-const ALCHEMY_API_KEY= "0000000000000000000000000000";
-
-const GOERLI_PRIVATE_KEY = "00000000000000000000000000000000000";
-
+const USER_WALLET = hardhat.config.env.DEVELOPER_PRIVATE_KEY
+console.log('user', USER_WALLET)
 module.exports = {
   solidity: "0.8.9",
+  defaultNetwork: "testnet",
   networks: {
-    goerli: {
-      url: `https://eth-goerli.g.alchemy.com/v2/${ALCHEMY_API_KEY}`,
-      accounts: [GOERLI_PRIVATE_KEY]
-    }
+    testnet: {
+      url: "https://data-seed-prebsc-1-s1.binance.org:8545",
+      chainId: 97,
+      gasPrice: 20000000000,
+      accounts: [USER_WALLET]
+    },
   }
 };
